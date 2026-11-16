@@ -1,0 +1,56 @@
+---
+import { TRIAL_DAYS } from '../site';
+
+const faqs = [
+  {
+    q: 'What do I need to run it?',
+    a: 'A phone, tablet or computer with a web browser at the bar. There’s nothing to install. Owners and managers use their own phones from anywhere.',
+  },
+  {
+    q: 'Does it work without internet?',
+    a: 'No. SnowPOS needs a connection to record sales, so a basic mobile data bundle or Wi-Fi at the bar is enough. Keep a backup bundle on the bar’s phone.',
+  },
+  {
+    q: 'How does M-Pesa work with it?',
+    a: 'On Basic, the bartender types each customer’s M-Pesa code. A code can be used only once, and every code is ticked off against the till phone at close. On Pro you can connect your own Lipa na M-Pesa till, and payments appear on the payment screen as they arrive.',
+  },
+  {
+    q: 'Can other clubs see my data?',
+    a: 'No. Every club’s data is kept apart inside the database itself, not just hidden in the app. Staff only see the outlets they work at.',
+  },
+  {
+    q: 'Can I take my data with me?',
+    a: 'Yes. The owner can download everything as spreadsheets (CSV) at any time, and every report exports to CSV too.',
+  },
+  {
+    q: `What happens after the ${TRIAL_DAYS}-day trial?`,
+    a: 'Pick a plan and pay by M-Pesa from the Billing page. If you don’t, you get 7 extra days with everything working, then the account becomes read-only: you can still sign in, look at your data and export it.',
+  },
+];
+---
+
+<section id="faq" class="border-t border-slate-800 bg-slate-900/40">
+  <div class="mx-auto max-w-3xl px-4 py-20">
+    <h2 class="text-3xl font-bold tracking-tight">Questions</h2>
+    <div class="mt-8 divide-y divide-slate-800 rounded-2xl border border-slate-800 bg-slate-950">
+      {faqs.map((f) => (
+        <details class="group p-5">
+          <summary class="flex min-h-8 cursor-pointer list-none items-center justify-between gap-4 font-medium [&::-webkit-details-marker]:hidden">
+            {f.q}
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5 shrink-0 text-slate-400 transition-transform group-open:rotate-45"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="M12 5v14M5 12h14" stroke-linecap="round" />
+            </svg>
+          </summary>
+          <p class="mt-3 text-slate-300">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

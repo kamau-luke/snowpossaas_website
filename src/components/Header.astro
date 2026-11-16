@@ -1,0 +1,80 @@
+---
+import Logo from './Logo.astro';
+import { LINKS } from '../site';
+
+const nav = [
+  { href: '#features', label: 'Features' },
+  { href: '#how-it-works', label: 'How it works' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+    <Logo />
+    <nav class="hidden items-center gap-6 text-sm text-slate-300 md:flex" aria-label="Main">
+      {nav.map((n) => (
+        <a href={n.href} class="hover:text-amber-400">
+          {n.label}
+        </a>
+      ))}
+    </nav>
+    <div class="flex items-center gap-2">
+      <a
+        href={LINKS.signIn}
+        class="hidden min-h-11 items-center rounded-xl px-3 text-sm font-medium text-slate-300 hover:text-amber-400 sm:inline-flex"
+      >
+        Sign in
+      </a>
+      <a
+        href={LINKS.signup}
+        class="inline-flex min-h-11 items-center rounded-xl bg-amber-500 px-4 text-sm font-semibold text-slate-950 hover:bg-amber-400"
+      >
+        Start free trial
+      </a>
+      <details class="relative md:hidden">
+        <summary
+          class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-xl text-slate-300 hover:bg-slate-800 [&::-webkit-details-marker]:hidden"
+          aria-label="Menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+          </svg>
+        </summary>
+        <nav
+          class="absolute right-0 mt-2 w-48 rounded-xl border border-slate-800 bg-slate-900 p-2 shadow-xl"
+          aria-label="Mobile"
+        >
+          {nav.map((n) => (
+            <a href={n.href} class="block rounded-lg px-3 py-3 text-slate-200 hover:bg-slate-800">
+              {n.label}
+            </a>
+          ))}
+          <a
+            href={LINKS.signIn}
+            class="block rounded-lg px-3 py-3 text-slate-200 hover:bg-slate-800"
+          >
+            Sign in
+          </a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Close the mobile menu after choosing a section
+  document
+    .querySelectorAll<HTMLAnchorElement>('header details nav a')
+    .forEach((a) =>
+      a.addEventListener('click', () => a.closest('details')?.removeAttribute('open')),
+    );
+</script>

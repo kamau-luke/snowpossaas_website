@@ -1,0 +1,32 @@
+---
+const pains = [
+  {
+    title: 'Stock walks out between shifts',
+    body: 'A crate short on Monday, two bottles on Friday. Nobody counted when the shift changed, so nobody knows whose shift it was.',
+  },
+  {
+    title: 'M-Pesa codes you can’t trust',
+    body: 'A code written on paper might be real, used twice, or for KES 50 when the bill was 500. You only find out at the end of the month.',
+  },
+  {
+    title: 'Shortages with no name on them',
+    body: 'When the numbers don’t add up, it’s one person’s word against another’s, and the owner pays for the difference.',
+  },
+];
+---
+
+<section class="border-y border-slate-800 bg-slate-900/40">
+  <div class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="max-w-2xl text-3xl font-bold tracking-tight text-balance">
+      Every bar loses money the same few ways
+    </h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {pains.map((p) => (
+        <div class="rounded-2xl border border-slate-800 bg-slate-950 p-6">
+          <h3 class="font-semibold text-rose-300">{p.title}</h3>
+          <p class="mt-2 text-slate-300">{p.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,91 @@
+---
+/** What SnowPOS does, from the app's README. `pro` = only on the Pro plan. */
+const features = [
+  {
+    title: 'Handover counts',
+    body: 'Every shift starts by agreeing the stock and the float with the last one. Differences become disputes for a manager to settle.',
+    icon: 'M9 12l2 2 4-4M7 4h10a2 2 0 012 2v14l-3-2-2 2-2-2-2 2-2-2-3 2V6a2 2 0 012-2z',
+  },
+  {
+    title: 'Blind closing counts and cash-ups',
+    body: 'The bartender counts without seeing what’s expected. Shortages land on their shift, priced at your selling price.',
+    icon: 'M3 7h18M3 12h18M3 17h10',
+  },
+  {
+    title: 'M-Pesa you can check',
+    body: 'Each code can be used once. At close the bartender ticks every one off against the till phone.',
+    icon: 'M7 3h10a1 1 0 011 1v16a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1zM10 18h4',
+  },
+  {
+    title: 'A connected M-Pesa till',
+    body: 'Connect your own till and payments appear on the payment screen as they arrive. No typing codes.',
+    icon: 'M13 2L4 14h7l-1 8 9-12h-7l1-8z',
+    pro: true,
+  },
+  {
+    title: 'Kegs, weighed',
+    body: 'Weigh each tap at handover and at close. SnowPOS compares the kilos poured with the cups sold.',
+    icon: 'M6 4h12v16H6zM6 9h12M6 15h12',
+    pro: true,
+  },
+  {
+    title: 'Waiters, tabs and staff bills',
+    body: 'Bartenders put items on a waiter’s tab and the waiter takes the payment. Nothing unpaid can disappear at close.',
+    icon: 'M17 20h5v-2a3 3 0 00-5-2M9 20H2v-2a4 4 0 018 0v2zm3-12a3 3 0 11-6 0 3 3 0 016 0zm7 1a2 2 0 11-4 0 2 2 0 014 0z',
+    pro: true,
+  },
+  {
+    title: 'Stores and transfers',
+    body: 'Keep a store and send stock to your outlets. Each end counts it, and anything short is somebody’s.',
+    icon: 'M3 9l9-6 9 6v11H3zM9 20v-6h6v6',
+    pro: true,
+  },
+  {
+    title: 'Reports across outlets',
+    body: 'Sales and gross profit, stock value, shortages, tips, expenses and M-Pesa, for one outlet or all of them. Export to CSV.',
+    icon: 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+  },
+  {
+    title: 'Manager PINs and an activity log',
+    body: 'Voids, expenses and write-offs need a manager’s PIN. Every sensitive action is logged, and the log can’t be edited.',
+    icon: 'M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z',
+  },
+];
+---
+
+<section id="features" class="mx-auto max-w-6xl px-4 py-20">
+  <h2 class="text-3xl font-bold tracking-tight">Built for how a bar actually runs</h2>
+  <p class="mt-3 max-w-2xl text-slate-300">
+    One outlet or several, the same rules everywhere: count at the start of a shift, count at the
+    end, and put a name on every difference.
+  </p>
+  <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((f) => (
+      <div class="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+        <div class="flex items-start justify-between">
+          <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/15 text-amber-400">
+            <svg
+              viewBox="0 0 24 24"
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d={f.icon} />
+            </svg>
+          </span>
+          {f.pro && (
+            <span class="rounded-full border border-amber-500/40 px-2 py-0.5 text-xs font-medium text-amber-300">
+              Pro
+            </span>
+          )}
+        </div>
+        <h3 class="mt-4 font-semibold">{f.title}</h3>
+        <p class="mt-2 text-sm text-slate-300">{f.body}</p>
+      </div>
+    ))}
+  </div>
+</section>
