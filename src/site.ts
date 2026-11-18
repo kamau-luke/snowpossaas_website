@@ -3,7 +3,7 @@
  * Items marked TODO are placeholders: fill them in before showing the site to anyone.
  */
 
-/** The SnowPOS app (the UI). In development, the UI's dev server. */
+/** The Clubio POS app (the UI). In development, the UI's dev server. */
 export const APP_URL = (import.meta.env.PUBLIC_APP_URL || 'http://localhost:5174').replace(
   /\/+$/,
   '',
@@ -25,7 +25,7 @@ export const BUSINESS = {
 export const CONTACT = {
   /** TODO: WhatsApp number in international form, digits only: 2547XXXXXXXX */
   whatsapp: '254700000000',
-  whatsappMessage: "Hi, I'd like a SnowPOS demo",
+  whatsappMessage: "Hi, I'd like a Clubio POS demo",
   /** TODO: phone number as people should see it */
   phoneDisplay: '0700 000 000',
   /** TODO: the same number in +254 form, for tap-to-call */

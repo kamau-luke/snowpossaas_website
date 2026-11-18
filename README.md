@@ -1,6 +1,6 @@
-# SnowPOS website
+# Clubio POS website
 
-The public marketing page for SnowPOS: what it does, pricing, and how to get in touch. It's built
+The public marketing page for Clubio POS: what it does, pricing, and how to get in touch. It's built
 with Astro 7 and Tailwind 4 and outputs static HTML; it has no backend and no analytics. It is
 separate from the app (`snowpossaas_ui`), so changes here can't affect the POS.
 
